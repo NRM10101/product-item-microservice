@@ -1,0 +1,9 @@
+[package]
+name = "product-item-microservice"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+futures = "0.3.28"
+sea-orm = { version = "^0.12.0", features = [ "sqlx-postgres", "runtime-async-std-native-tls", "macros" ] }
+sea-orm-migration = "^0.12.0"
