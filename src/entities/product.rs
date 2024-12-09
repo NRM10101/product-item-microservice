@@ -29,6 +29,12 @@ pub struct CreateProductInput {
     pub name: String,
     pub description: Option<String>,
 }
+#[derive(Debug, Serialize, Deserialize)]
+pub struct UpdateProductInput {
+    pub name: String,
+    pub description: Option<String>,
+}
+
 // ------------------------------------------------------------------------------------------------
 
 impl ActiveModelBehavior for ActiveModel {}
