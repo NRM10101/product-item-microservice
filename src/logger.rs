@@ -1,4 +1,4 @@
-use tracing_subscriber::{fmt, EnvFilter};
+use tracing_subscriber::EnvFilter;
 
 pub fn init_tracing() {
     // Set up the tracing subscriber with environment variable filtering and formatted output
