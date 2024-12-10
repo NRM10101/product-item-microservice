@@ -41,7 +41,8 @@ This Rust-based API service uses Axum for the web framework and SeaORM for objec
 2. **Configure the database connection**
     Edit the `.env` file to include your database connection string:
     ```
-    DATABASE_URL=postgres://username:password@localhost:port/dbname
+    DATABASE_URL=postgres://username:password@localhost:port
+    DB_NAME=dbname
     ```
 
 ### Running the Application 🚀
