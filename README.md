@@ -42,7 +42,6 @@ This project is an API service developed in Rust, utilizing Axum for the web fra
     ```
     DATABASE_URL=postgres://username:password@localhost:port
     DB_NAME=dbname
-    
     ```
 
 3. **Run the application**

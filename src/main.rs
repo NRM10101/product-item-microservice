@@ -29,7 +29,7 @@ async fn run() -> Result<(), DbErr> {
     let app = route::create_router(db);
 
     // Run the server
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 3000)); // Listening on all interfaces
     tracing::info!("Listening on {}", addr);
 
     axum::Server::bind(&addr)

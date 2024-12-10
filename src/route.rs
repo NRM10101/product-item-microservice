@@ -1,15 +1,15 @@
 use crate::handler::{
     item_handler::{
-        delete_item_by_id,
         get_all_items,
         get_item_by_id,
+        delete_item_by_id,
         // update_item,
     },
     product_handler::{
-        delete_product_by_id,
-        // create_product,
         get_all_products,
         get_product_by_id,
+        delete_product_by_id,
+        // create_product,
     },
     // product_handler_create_update::create_product,
 };

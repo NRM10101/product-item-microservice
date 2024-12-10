@@ -8,8 +8,6 @@ use axum::{
     http::StatusCode,
     response::{IntoResponse, Response},
 };
-use tracing::{error, info, warn};
-// use uuid::Uuid;
 // use sea_orm::{DatabaseConnection, EntityTrait};
 use sea_orm::{
     // ActiveModelTrait, ActiveValue::Set,
@@ -18,9 +16,10 @@ use sea_orm::{
     //  IntoActiveModel,
     ModelTrait,
 };
-
 use serde_json::to_vec; // Serialize json data to Vec<u8>
-                        //get all the products from the database
+use tracing::{error, info, warn};
+
+//get all the products from the database
 pub async fn get_all_items(Extension(db): Extension<DatabaseConnection>) -> impl IntoResponse {
     info!("Attempting to fetch all items from the database.");
     match query_all_items(&db).await {
