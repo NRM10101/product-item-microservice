@@ -31,15 +31,18 @@ impl Related<super::product::Entity> for Entity {
     }
 }
 // --Additional Implementations --------------------------------
-#[derive(Debug, Serialize, Deserialize)]
-pub struct CreateItemInput {
+// Define the input data structure for creating an item
+#[derive(serde::Deserialize)]
+pub struct CreateItemModel {
     pub product_id: i32,
     pub name: String,
     pub price: Decimal,
 }
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct UpdateItemInput {
+// Define the input data structure for updating an item
+#[derive(serde::Deserialize)]
+pub struct UpdateItemModel {
+    pub id: i32,
+    pub product_id: Option<i32>,
     pub name: Option<String>,
     pub price: Option<Decimal>,
 }

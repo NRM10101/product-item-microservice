@@ -24,17 +24,19 @@ impl Related<super::item::Entity> for Entity {
     }
 }
 // Additional Implementations----------------------------------------------------------------------
-#[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct CreateProductInput {
+// Define the input data structure for creating a product
+#[derive(serde::Deserialize)]
+pub struct CreateProductModel {
     pub name: String,
-    pub description: Option<String>,
-}
-#[derive(Debug, Serialize, Deserialize)]
-pub struct UpdateProductInput {
-    pub name: String,
-    pub description: Option<String>,
+    pub description: String,
 }
 
+#[derive(serde::Deserialize)]
+pub struct UpdateProductModel {
+    pub id: i32,
+    pub name: Option<String>,
+    pub description: Option<String>,
+}
 // ------------------------------------------------------------------------------------------------
 
 impl ActiveModelBehavior for ActiveModel {}
