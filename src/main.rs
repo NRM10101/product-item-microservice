@@ -10,6 +10,7 @@ mod service;
 use futures::executor::block_on;
 use sea_orm::DbErr;
 use std::net::SocketAddr;
+use std::env;
 
 async fn run() -> Result<(), DbErr> {
     tracing::info!("Starting the application...");
@@ -20,8 +21,13 @@ async fn run() -> Result<(), DbErr> {
     let app = router::route::create_router(db); // Create the router
 
     // Run the server
-    let addr = SocketAddr::from(([0, 0, 0, 0], 3000)); // Listening on all interfaces
+    let port: u16 = env::var("PORT")
+        .unwrap_or_else(|_| "3000".to_string())
+        .parse()
+        .expect("PORT must be a number");
+    let addr = SocketAddr::from(([0, 0, 0, 0], port)); // Listening on all interfaces
     tracing::info!("Listening on {}", addr);
+    // let addr = SocketAddr::from(([0, 0, 0, 0], port));
 
     axum::Server::bind(&addr)
         .serve(app.into_make_service())
@@ -39,6 +45,6 @@ async fn main() {
         tracing::error!("Application encountered an error: {}", err);
         panic!("{}", err);
     }
-    
+
     tracing::info!("Application terminated successfully.");
 }
