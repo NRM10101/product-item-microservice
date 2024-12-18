@@ -35,11 +35,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY --from=builder /usr/src/app/target/release/product-item-microservice .
 
 # Expose the port the Axum app is running on
-EXPOSE 3000
+EXPOSE 8080
 
 # Environment variables
-ENV DATABASE_URL=postgres://postgres:1002@host.docker.internal:5432
+# ENV DATABASE_URL=postgres://postgres:1002@host.docker.internal:5432
+ENV DATABASE_URL=postgres://postgres:1002@34.173.105.211:5432
 ENV DB_NAME=product_item_db
+ENV PORT=8080
 
 # Set the startup command
 CMD ["./product-item-microservice"]
