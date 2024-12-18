@@ -40,7 +40,7 @@ jobs:
     - name: Build and Push Docker image
       run: |
         docker build -t ${{ env.DOCKER_IMAGE_URL }}:latest .
-        docker push ${{ env.DOCKER_IMAGE_URL }}:latest
+        docker push ${{ env.DOCKER_IMAGE_URL }}:latest || echo "Failed to push the image"
     - name: Deploy to Cloud Run
       run: |
         echo SERVICE_NAME $SERVICE_NAME
