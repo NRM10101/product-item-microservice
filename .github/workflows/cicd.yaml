@@ -3,7 +3,7 @@ name: Build and Deploy to Google Cloud Run
 env:
   SERVICE_NAME: product-item-microservice
   PROJECT_ID: my-microservice-444912
-  DOCKER_IMAGE_URL: us-central1-docker.pkg.dev/my-microservice-444912/product-item-microservice/my-pimi1
+  DOCKER_IMAGE_URL: us-central1-docker.pkg.dev/my-microservice-444912/product-item-microservice/my-pimi1:latest
 
 on:
   push:
